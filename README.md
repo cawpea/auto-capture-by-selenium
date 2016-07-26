@@ -3,7 +3,7 @@
 ## 概要
 
 特定のWebページのキャプチャ画像を自動で取得します。
-Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE)で実行可能です。
+[Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/)を使用しているので、マルチブラウザ(Firefox, Chrome, IE)で実行可能です。
 ※IEはWindows環境のみ
 
 ## 環境構築
