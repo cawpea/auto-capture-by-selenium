@@ -23,7 +23,7 @@ $ java -version
 
 もし、javaのバージョンが1.8以下の場合は更新が必要なため、以下のフォルダにあるexeファイルを実行するか、[Javaのサイト](https://java.com/ja/download/)から最新を取得してインストールしてください。
 
-`\lib\java\jre-8u91-windows-i586-iftw.exe`
+`/lib/java/jre-8u91-windows-i586-iftw.exe`
 
 #### リポジトリからソース取得
 
@@ -43,7 +43,7 @@ $ npm install
 
 以下のインストーラを実行し、Graphics Magickをインストール
 
-`\lib\graphic-magick\GraphicsMagick-1.3.24-Q16-win32-dll.exe`
+`/lib/graphic-magick/GraphicsMagick-1.3.24-Q16-win32-dll.exe`
 
 ### Windowsのみ
 
@@ -51,7 +51,7 @@ $ npm install
 
 IEでBasic認証を行うために以下のbatを実行してレジストリに設定を追加
 
-`\shell\config-for-ie.bat`
+`/shell/config-for-ie.bat`
 
 *上記についての詳細は[こちらの記事](http://aleetesting.blogspot.jp/2011/10/selenium-webdriver-tips.html)をご参照ください。*
 
