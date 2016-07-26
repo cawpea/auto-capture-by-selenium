@@ -1,8 +1,15 @@
-# Selenium導入手順書(Windows用)
+# auto-capture-by-selenium
 
-## 事前準備(Windows, Mac共通)
+## 概要
 
-### Javaバージョン確認
+特定のWebページのキャプチャ画像を自動で取得します。
+Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE, Safari)で実行可能です。
+
+## 環境構築
+
+### Windows, Mac共通
+
+#### Javaバージョン確認
 
 コンソールを開いて、以下のコマンドを実行
 
@@ -10,46 +17,95 @@
 java -version
 ```
 
-もし、javaのバージョンが1.8以下の場合は更新が必要なため、以下のフォルダにあるexeファイルを実行
+もし、javaのバージョンが1.8以下の場合は更新が必要なため、以下のフォルダにあるexeファイルを実行するか、[Javaのサイト](https://java.com/ja/download/)から最新を取得してインストールしてください。
 
-\lib\java\jre-8u91-windows-i586-iftw.exe
+`\lib\java\jre-8u91-windows-i586-iftw.exe`
 
-### Nodeモジュールインストール
+#### リポジトリからソース取得
 
-コンソールを開いて、`selenium` ディレクトリまで移動し、以下のコマンドを実行
+コンソールで以下のコマンドを実行
+
+```bash
+git clone https://github.com/masaki-ohsumi/auto-capture-by-selenium.git
+```
+
+#### Nodeモジュールインストール
+
+コンソールを開いて、リポジトリクローン先のディレクトリまで移動し、以下のコマンドを実行
 
 ```bash
 npm install
 ```
 
-### Graphics Magickのインストール
+#### Graphics Magickのインストール
 
 以下のインストーラを実行し、Graphics Magickをインストール
 
-\lib\graphic-magick\GraphicsMagick-1.3.24-Q16-win32-dll.exe
+`\lib\graphic-magick\GraphicsMagick-1.3.24-Q16-win32-dll.exe`
 
-## 事前準備(Windowsのみ)
+### Windowsのみ
 
 #### レジストリに設定を追加
 
 IEでBasic認証を行うために以下のbatを実行してレジストリに設定を追加
 
-\shell\config-for-ie.bat
+`\shell\config-for-ie.bat`
 
-*上記についての詳細は[こちら](http://aleetesting.blogspot.jp/2011/10/selenium-webdriver-tips.html)の記事をご参照ください。*
+*上記についての詳細は[こちらの記事](http://aleetesting.blogspot.jp/2011/10/selenium-webdriver-tips.html)をご参照ください。*
 
-## Seleniumの実行
+## キャプチャ処理の実行
 
-### Selenium Serverの起動
+以降の手順でコンソールからコマンドを実行する場合はリポジトリクローン先の`auto-capture-by-selenium`ディレクトリ直下で実行する事を前提とします。
 
-以下のbatファイルを実行
+### Selenium Server起動
 
-\shell\selenium-server.bat
+#### Windowsの場合
 
-### テストスクリプトの実行
+以下のbatファイルを実行（ファイルをダブルクリックでOK）
 
-テストコードを実行し、Chromeブラウザが自動で起動され、正常に終了すればOK
+`/shell/selenium-server.bat`
+
+#### Macの場合
+
+コンソールから以下を実行
 
 ```bash
-node scripts/sample.js
+sh shell/startup-selenium-server.sh
 ```
+
+### キャプチャ対象のURL指定
+
+`input/capture-list.json`にキャプチャ対象のURLを記述
+
+```json
+{
+ "captureTarget": [
+  {
+   "pc": [
+    "https://www.google.co.jp/",
+    "http://www.yahoo.co.jp/"
+   ]
+  }
+ ]
+}
+```
+
+### スクリプトの実行
+
+別のコンソールを起動後、以下のコマンドを実行
+
+```bash
+node auto-capture.js
+```
+
+上記コマンドではFirefoxで処理を実行します。他のブラウザで実行する場合は以下のように指定します。
+
+```
+//Chromeで起動する場合
+node auto-capture.js chrome
+
+//IEで起動する場合
+node auto-capture.js ie
+```
+
+スクリプトが正常に実行された場合は、`output`ディレクトリ配下にキャプタ画像が保存されます。
