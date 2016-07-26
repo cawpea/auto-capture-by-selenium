@@ -9,12 +9,10 @@ Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE,
 
 ### Windows, Mac共通
 
-#### JREインストール
-
-コンソールを開いて、以下のコマンドを実行
+#### JREバージョン確認
 
 ```bash
-java -version
+$ java -version
 ```
 
 もし、javaのバージョンが1.8以下の場合は更新が必要なため、以下のフォルダにあるexeファイルを実行するか、[Javaのサイト](https://java.com/ja/download/)から最新を取得してインストールしてください。
@@ -23,21 +21,19 @@ java -version
 
 #### リポジトリからソース取得
 
-コンソールで以下のコマンドを実行
-
 ```bash
-git clone https://github.com/masaki-ohsumi/auto-capture-by-selenium.git
+$ git clone https://github.com/masaki-ohsumi/auto-capture-by-selenium.git
 ```
 
-#### Nodeモジュールインストール
+#### node_modulesインストール
 
-コンソールを開いて、リポジトリクローン先のディレクトリまで移動し、以下のコマンドを実行
+リポジトリクローン先のディレクトリまで移動し、以下のコマンドを実行
 
 ```bash
-npm install
+$ npm install
 ```
 
-#### Graphics Magickのインストール
+#### Graphics Magickインストール
 
 以下のインストーラを実行し、Graphics Magickをインストール
 
@@ -45,7 +41,7 @@ npm install
 
 ### Windowsのみ
 
-#### レジストリに設定を追加
+#### レジストリに設定追加
 
 IEでBasic認証を行うために以下のbatを実行してレジストリに設定を追加
 
@@ -67,10 +63,8 @@ IEでBasic認証を行うために以下のbatを実行してレジストリに�
 
 #### Macの場合
 
-コンソールから以下を実行
-
 ```bash
-sh shell/startup-selenium-server.sh
+$ sh shell/startup-selenium-server.sh
 ```
 
 ### キャプチャ対象のURL指定
@@ -95,17 +89,17 @@ sh shell/startup-selenium-server.sh
 別のコンソールを起動後、以下のコマンドを実行
 
 ```bash
-node auto-capture.js
+$ node auto-capture.js
 ```
 
 上記コマンドではFirefoxで処理を実行します。他のブラウザで実行する場合は以下のように指定します。
 
 ```
 //Chromeで起動する場合
-node auto-capture.js chrome
+$ node auto-capture.js chrome
 
 //IEで起動する場合(Windowsの場合のみ)
-node auto-capture.js ie
+$ node auto-capture.js ie
 ```
 
 スクリプトが正常に実行された場合は、`output`ディレクトリ配下にキャプチャ画像が保存されます。
