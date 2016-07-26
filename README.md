@@ -8,24 +8,16 @@ Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE)
 
 ## 環境構築
 
-以下が端末にインストールされている前提とするので、ここでは割愛します。
+### 予めインストールが必要なもの
 
 - Node.js
 - 各ブラウザ( Firefox, Chrome, IE )
+- [JRE](https://java.com/ja/download/)) 1.8以上
+- [Graphics Magick](http://www.graphicsmagick.org/index.html)
 
-### Windows, Mac共通
+### 初期設定
 
-#### JREバージョン確認
-
-```bash
-$ java -version
-```
-
-もし、javaのバージョンが1.8以下の場合は更新が必要なため、以下のフォルダにあるexeファイルを実行するか、[Javaのサイト](https://java.com/ja/download/)から最新を取得してインストールしてください。
-
-`/lib/java/jre-8u91-windows-i586-iftw.exe`
-
-#### リポジトリからソース取得
+#### リポジトリをクローン
 
 ```bash
 $ git clone https://github.com/masaki-ohsumi/auto-capture-by-selenium.git
@@ -39,13 +31,7 @@ $ git clone https://github.com/masaki-ohsumi/auto-capture-by-selenium.git
 $ npm install
 ```
 
-#### Graphics Magickインストール
-
-以下のインストーラを実行し、Graphics Magickをインストール
-
-`/lib/graphic-magick/GraphicsMagick-1.3.24-Q16-win32-dll.exe`
-
-### Windowsのみ
+### Windowsのみ設定
 
 #### レジストリに設定追加
 
