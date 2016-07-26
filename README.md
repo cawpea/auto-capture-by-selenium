@@ -12,7 +12,7 @@ Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE)
 
 - Node.js
 - 各ブラウザ( Firefox, Chrome, IE )
-- [JRE](https://java.com/ja/download/)) 1.8以上
+- [JRE](https://java.com/ja/download/) 1.8以上
 - [Graphics Magick](http://www.graphicsmagick.org/index.html)
 
 ### 初期設定
