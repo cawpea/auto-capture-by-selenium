@@ -3,9 +3,15 @@
 ## 概要
 
 特定のWebページのキャプチャ画像を自動で取得します。
-Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE, Safari)で実行可能です。
+Seleniumを使用しているので、マルチブラウザ(Firefox, Chrome, IE)で実行可能です。
+※IEはWindows環境のみ
 
 ## 環境構築
+
+以下が端末にインストールされている前提とするので、ここでは割愛します。
+
+- Node.js
+- 各ブラウザ( Firefox, Chrome, IE )
 
 ### Windows, Mac共通
 
