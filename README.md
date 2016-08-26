@@ -55,9 +55,9 @@ $ sh util/startup-selenium-hub.sh
 
 #### Nodeサーバーの起動(Windowsの場合)
 
-以下のbatファイルを実行（ファイルをダブルクリックでOK）
-
-`/util/startup-selenium-server_win.bat`
+```bash
+$ sh util/startup-selenium-server_win.sh
+```
 
 #### Nodeサーバーの起動(Macの場合)
 
