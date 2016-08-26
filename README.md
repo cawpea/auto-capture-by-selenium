@@ -37,7 +37,7 @@ $ npm install
 
 IEでBasic認証を行うために以下のbatを実行してレジストリに設定を追加
 
-`/shell/config-for-ie.bat`
+`/util/config-for-ie.bat`
 
 *上記についての詳細は[こちらの記事](http://aleetesting.blogspot.jp/2011/10/selenium-webdriver-tips.html)をご参照ください。*
 
@@ -47,16 +47,22 @@ IEでBasic認証を行うために以下のbatを実行してレジストリに�
 
 ### Selenium Server起動
 
-#### Windowsの場合
+#### Hubサーバーの起動
+
+```
+$ sh util/startup-selenium-hub.sh
+```
+
+#### Nodeサーバーの起動(Windowsの場合)
 
 以下のbatファイルを実行（ファイルをダブルクリックでOK）
 
-`/shell/selenium-server.bat`
+`/util/startup-selenium-server_win.bat`
 
-#### Macの場合
+#### Nodeサーバーの起動(Macの場合)
 
 ```bash
-$ sh shell/startup-selenium-server.sh
+$ sh util/startup-selenium-server_mac.sh
 ```
 
 ### キャプチャ対象のURL指定
@@ -70,6 +76,10 @@ $ sh shell/startup-selenium-server.sh
    "pc": [
     "https://www.google.co.jp/",
     "http://www.yahoo.co.jp/"
+   ],
+   "sp": [
+   	"https://www.google.co.jp/",
+   	"http://m.yahoo.co.jp/"
    ]
   }
  ]
@@ -81,7 +91,7 @@ $ sh shell/startup-selenium-server.sh
 別のコンソールを起動後、以下のコマンドを実行
 
 ```bash
-$ node auto-capture.js
+$ node capture.js
 ```
 
 #### 起動オプション
@@ -93,20 +103,31 @@ $ node auto-capture.js
 |browser       |firefox    |キャプチャ実行時のブラウザを["firefox", "chrome", "ie"]の中から指定します。|
 |basicId        |無し        |Basic認証が必要な場合にID(ユーザー名)を指定します。                                 |
 |basicPass   |無し        |Basic認証が必要な場合にPasswordを指定します。                                         |
+|windowWidth |無し        |ブラウザ起動時のウインドウ幅を指定します。                                                 |
+|windowHeight|無し        |ブラウザ起動時のウインドウ高さを指定します。                                                |
+|deviceType  |pc         |指定した値を元に、capture-list.jsonのcaptureTargetから同名のURLリストを取得し、キャプチャします。"sp"を指定した場合のデフォルトウインドウサイズはiPhone5(320x568)のサイズになります。|
 
 ```bash:Example
 //chromeで実行
-$ node auto-capture.js --browser=chrome
+$ node capture.js --browser=chrome
 
 //Basic認証パラメータを指定
-$ node auto-capture.js --basicId=id --basicPass=pass
+$ node capture.js --basicId=id --basicPass=pass
+
+//"sp"のURLをキャプチャ
+$ node capture.js --deviceType=sp
 ```
 
-起動オプションは`node auto-capture.js -h`で参照可能です。
+起動オプションは`node capture.js -h`で参照可能です。
 
 スクリプトが正常に実行された場合は、`output`ディレクトリ配下にキャプチャ画像が保存されます。
 
 ## 注意事項
+
+### キャプチャが動作しない場合
+
+Firefox v47.0.0ではSelenium WebDriverが動作しない事が分かっています。
+バージョンを変更しても問題ない場合は、[Firefox v47.0.1](https://www.mozilla.org/en-US/firefox/47.0.1/releasenotes/)をご利用ください。
 
 ### 現状出来ない事（今後対応出来たらしたい）
 
