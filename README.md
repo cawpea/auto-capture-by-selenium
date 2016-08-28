@@ -1,4 +1,4 @@
-# auto-capture-by-selenium
+# Auto Capture By Selenium
 
 ## 概要
 
@@ -53,15 +53,13 @@ IEでBasic認証を行うために以下のbatを実行してレジストリに�
 $ sh util/startup-selenium-hub.sh
 ```
 
-#### Nodeサーバーの起動(Windowsの場合)
+#### Nodeサーバーの起動
 
 ```bash
+//Windowsの場合
 $ sh util/startup-selenium-server_win.sh
-```
 
-#### Nodeサーバーの起動(Macの場合)
-
-```bash
+//Macの場合
 $ sh util/startup-selenium-server_mac.sh
 ```
 
