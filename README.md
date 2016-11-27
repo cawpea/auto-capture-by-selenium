@@ -124,8 +124,8 @@ $ node capture.js --deviceType=sp
 
 ### キャプチャが動作しない場合
 
-Firefox v47.0.0ではSelenium WebDriverが動作しない事が分かっています。
-バージョンを変更しても問題ない場合は、[Firefox v47.0.1](https://www.mozilla.org/en-US/firefox/47.0.1/releasenotes/)をご利用ください。
+- Firefox v47.0.0ではSelenium WebDriverが動作しない事が分かっています。バージョンを変更しても問題ない場合は、[Firefox v47.0.1](https://www.mozilla.org/en-US/firefox/47.0.1/releasenotes/)をご利用ください。
+- 本リポジトリに上がっているChromeDriverが古い場合は動作しない可能性があります。その場合は[最新のChromeDriver](https://chromedriver.storage.googleapis.com/index.html?path=2.25/)をダウンロードして、`/lib/selenium/chromedriver_*/chromedriver`を置換してみてください。
 
 ### 現状出来ない事（今後対応出来たらしたい）
 
